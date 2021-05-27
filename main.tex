@@ -1,8 +1,33 @@
-\documentclass[]{report}
+\documentclass[a4paper, 11pt]{report}
 
 \input{preambule}
 
 \begin{document}
+    % Première de couverture
+    \include{couverture_avant.tex}
+
+    % Avant-propos
+    \include{avant_propos.tex}
+
+    % Remerciements
+    \include{remerciements.tex}
+
+    % Table des matières
+    % ! DISPLAY TALBEOFCONTENT
+    %\tableofcontents 
+
+    % Introduction
+    \include{introduction.tex}
+
+    % Partie fonction logistique
     \include{fct_logistique}
-    \include{lorenz}
+
+    % Partie lorenz
+    \include{lorenz.tex}
+
+    % Partie fractales
+    \include{fractales.tex}
+
+    % Conclusion
+    \include{conclusion.tex}
 \end{document}

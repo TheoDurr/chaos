@@ -1,1 +1,19 @@
-\usepackage[french]{babel}
+% Langue & Encodage
+\usepackage[french]{babel} % Langue française
+\usepackage[utf8]{inputenc} % Pour l'UTF-8
+\usepackage[T1]{fontenc} % Césure de caractères accentués
+
+% Police
+\usepackage{lmodern} % Police standard sous LaTeX : LatinModern (alternative à la police d'origine développée par DonaldKnuth : Computer Modern)
+
+% Mise en page
+%\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fullpage}
+
+% URL & Génération du PDF
+\usepackage[hyphens]{url}
+\usepackage[pdfauthor = {{Théo DURR, Célian HUMBERT}}, pdftitle = {{AC20 - Etudes de systèmes dynamiques non déterministes}}, pdfstartview = Fit, pdfpagelayout = SinglePage, pdfnewwindow = true, bookmarksnumbered = true,breaklinks, colorlinks, linkcolor = blue, urlcolor = black,citecolor = cyan, linktoc = all]{hyperref}
+
+% Images
+\usepackage{graphicx}
+\graphicspath{ {pictures/} } % Spécifie le chemin où sont enregistrées les images
