@@ -1,10 +1,114 @@
 \chapter{Fonction logisitque}
 % Faire un historique
+Cette fonction a été introduite par Pierre François Verhlust (1804-1849). Il s'agit d'un modèle de croissance des populations proposé en réponse au modèle de Malthus, qui proposait un taux d'accroissement constant, sans frein conduisant à une croissance exponentielle de la population.
+
+Si on note $t\mapsto x(t)$, la fonction qui représente la population au temps $t$. Le modèle de Malthus se traduit mathématiquement de la manière suivante : $x'(t)=x(t)$. Les solutions d'un tel modèle sont des \textbf{exponentielles}.
+
+On peut voir ici que le modèle de Verhlust est plus fin : il prend en compte l'effet de \og surpopulation\fg{} qui conduit à une raréfication des ressources et donc à la diminution de la population. Mathématiquement, cela conduit à étudier la fonction $x'=\lambda x(1-x)$ : le taux d'accroissement diminue quand $x$ augmente à cause du facteur $(1-x)$.
+
+\begin{axiome}[La fonction logisitque (Verhlust)]
+Soit $\lambda \in [0;4]$, on considère la fonction logistique
+\[
+    f_\lambda : \left|
+    \begin{array}{ccc}
+        [0;1] &\longrightarrow& [0;1] \\
+        x &\mapsto& \lambda x(1-x)
+    \end{array}
+    \right.  
+\]
+\end{axiome}
+
+Nous allons dans notre cas, étudier une version discrète de ce modèle, c'est-à-dire à l'aide de suites. Nous allons donc étudier l'évolution des suites récurrentes définies par :
+\[
+    \left\{
+    \begin{array}{rcl}
+            u_0 &\in& [0;1] \\
+            u_{n+1} &=& f_\lambda(u_n)
+    \end{array}
+    \right.
+\]
 
 \section{Analyse graphique \& expérimentation numérique}
+\subsection{Etude générale}
+
+
+\subsection{Etude de la version discrète}
+On cherche à observer numériquement le comportement de la suite $(u_n)$. Pour cela, nous avons observé le comportement des $30$ premiers termes de la suite, pour $u_0 = 0.5$ et $\lambda\in\{0,5; 1,5; 2,5; 3,2; 3,5\}$.
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=\textwidth]{experimentation_numerique.pdf}
+    \end{center}
+    \caption{Etude de la suite logistique pour différentes valeurs de $\lambda$}
+    \label{fig:etude_lambdas}
+\end{figure}
+On peut voir sur la figure \ref{fig:etude_lambdas} que pour les valeurs de $\lambda\in\{0,5; 1,5; 2,5\}$, la suite $(u_n)$ est convergente, et converge respectivement vers (environ) $0; 0,33$ et $0,6$. On peut déceler un comportement particulier pour les valeurs de $\lambda \in\{3,2; 3,5\}$ : elles semblent converger périodiquement vers deux points. On peut trouver les suites extraites afin de donner une valeur approchée de leurs limites.
+
+Pour $\lambda = 3,2$, la suite des termes pairs $(u_{2n})$ converge vers approximativement $0,51$. Tandis que la suite des termes impairs $(u_{2n+1})$ converge vers approximativement 0,80. De même pour $\lambda = 3,5$ où, les limites des suites extraites sont (approximativement) $0,4$ et $0,9$.
+
+\subsection{Sensibilité aux conditions initiales}
+Pour cette partie, fixons $\lambda = 4$ et étudions la suite logistique avec $u_0 = 0,4$ et $u'_0 = 0,4 + 10^{-8}$. On remarque sur la figure \ref{fig:etude_u0} que les courbes se superposent parfaitement jusqu'au 17\ieme{} terme. Au delà, les courbes commencent à se dissocier et se dissocient rapidement.
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=\textwidth]{variation_u0.pdf}
+    \end{center}
+    \caption{Etude de la suite logistique pour une infine variation du premier terme $u_0$}
+    \label{fig:etude_u0}
+\end{figure}
+
+Cette partie illustre le fait que pour $\lambda = 4$, la suite $(u_n)$ a une forte sensibilité aux conditions initiales. Une infine variation des conditions initiales (ici $0,00000001$) a des conséquences énormes sur les résultats : le système est donc \textbf{chaotique}, et introduit la notion d'\textit{effet papillon}.
+
+% Transition
 
 \section{\'Etude mathématique}
+En plus des études graphiques, nous allons maintenant nous intéresser à des preuves mathématiques validant les hypothèses que nous aurions pu émettre.
+Tout d'abord, nous aurons besoin des bornes de $f_\lambda$ durant toute la suite de l'étude. Montrons donc que $f_\lambda([0;1])\in[0;1]$ :
+
+Etudions la fonction $f_\lambda(x)$ :
+\[
+    f_\lambda(x)=\lambda x(1-x) = \lambda x - \lambda x^2
+\]
+
+Calculons son discriminant $\Delta$ :
+\[
+    \begin{array}{rcl}
+        \Delta &=& \lambda^2-4\times\lambda\times 0 \\
+        &=& \boxed{\lambda^2 > 0}
+    \end{array}
+\]
+Il existe donc deux racines $x_1$ et $x_2$ :
+\[
+    \begin{array}{rcl}
+        x_1 &=& \dfrac{- \lambda-\sqrt{\lambda^2}}{-2\lambda} = \dfrac{-2\lambda}{-2\lambda} = \boxed{1} \\
+        x_2 &=& \dfrac{- \lambda+\sqrt{\lambda^2}}{-2\lambda} = \boxed{0}
+    \end{array}
+\]
+On voit donc que $f_\lambda$ est \textbf{positive} sur l'intervalle $[0;1]$. Calculons les coordonnées du sommet afin de s'assurer que son ordonnée ne soit pas supérieure à $1$ :
+\begin{axiome}[Coordonnées du sommet d'une parabole]
+    Soit $f(x) = ax^2+bx+c$ un polynôme du second degré. Les coordonnées du sommet $S$ de la courbe représentative de $f$ sont
+    \[
+          S\left(-\frac{b}{2a};f\left(-\frac{b}{2a}\right)\right)
+    \]
+\end{axiome}
+
+Notons, $S_\lambda$ le sommet de la courbe représentative de $f_\lambda$. L'ordonnée de $S_\lambda$ vaut :
+\[
+    f\left(\dfrac{1}{2}\right) = \dfrac{\lambda}{4}
+\]
+
+Calculons les bornes de $y$ en fonction de $\lambda$ :
+\[
+    \begin{array}{rcccl}
+        0 &\leq& \lambda &\leq& 1 \\
+        0 &\leq& \dfrac{\lambda}{4} &\leq& \dfrac{1}{4}
+    \end{array}
+\]
+
+Comme $\frac{1}{4} < 1$, le sommet ne dépassera jamais $1$. Donc $\boxed{f([0;1]) \in[0;1]}$
+
 \subsection{\'Etude du cas : \texorpdfstring{$\lambda \leq 1$}{Lg}}
+
 \subsection{\'Etude du régime stationnaire : \texorpdfstring{$1 < \lambda < 3$}{Lg}}
 \subsection{\'Etude d'un cycle d'ordre 2 : \texorpdfstring{$3 < \lambda < 1+\sqrt{6}$}{Lg}}
 
