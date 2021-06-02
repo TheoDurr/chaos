@@ -1,4 +1,31 @@
 \chapter{Les attracteurs de Lorenz}
+Tout d’abord commençons par définir rapidement et sans rentré dans les détails mathématiques ce qu’est un attracteur,
+ il s’agit d’un ensemble ou d’un espace vers lequel un système dynamique évolue de manière
+ irréversible en l’absence de perturbation, le concept d’attracteur est l’une des bases de la théorie du chaos. 
+ Dans cette partie nous allons nous concentrer sur l’attracteur de Lorenz, il s’agit d’un attracteur
+représentant l’évolution du système dynamique différentiel de Lorenz.
+
+Le système de Lorenz s'écrit: 
+\[
+    \left\{
+    \begin{array}{rcl}
+        \dfrac{dx}{dt}=\sigma[y(t)-x(t)]\\
+        \dfrac{dy}{dt}=\rho x(t)-y(t)z(t)\\
+        \dfrac{dz}{dt}=x(t)y(t)-\beta z(t)\\
+    \end{array}
+    \right.
+\]
+Ces équations sont un modèle très simplifier crée par Lorenz pour modélisé le fonctionnement 
+de l’atmosphère terrestre. Il a décidé de cherché un modèle simple car 
+les équations décrivant l’atmosphère de façon précise était beaucoup trop compliqué à résoudre
+ numériquement à l’époque de Lorenz et il souhaitais pouvoir étudié  le phénomène de convection
+de Rayleigh-Bénard à l’aide de son modèle simplifié.
+
+Dans ces équations: \\
+$\sigma$  correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement et ça diffusivité thermique.\\\\
+$\rho$    correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide \\\\
+$\beta $  est une valeur dépendand de la couche de l'atmosphère\\\\
+$x(t)$    
 
 \section{Dimension mathématique}
 
