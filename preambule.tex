@@ -16,6 +16,10 @@
 
 % Images
 \usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
 \graphicspath{ {pictures/} } % Spécifie le chemin où sont enregistrées les images
 
 % Maths
@@ -26,3 +30,10 @@
 
 % Inclusion de PDFs
 \usepackage{pdfpages}
+
+% Annexes
+\usepackage[toc,page,title,titletoc,header]{appendix} % pour les annexes
+\renewcommand{\appendixtocname}{Table des annexes} % indique le nom de la table des annexes dans la toc
+\renewcommand{\appendixpagename}{Annexes} % Nom du titre de la page des annexes
+\usepackage{etoolbox}
+\AtBeginEnvironment{appendices}{\renewcommand{\thesection}{\Alph{section}}}
