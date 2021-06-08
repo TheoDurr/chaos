@@ -52,6 +52,28 @@ autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à sa
  $(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1)$, $(-\sqrt{(\beta(\rho-1)}; -\sqrt{(\beta(\rho-1)}; \rho-1)$ et $(0,0,0)$\\\\
  dans le cas ou $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$\\
  
- \subsection{Stabilité des points d'équilibre}
-Les point d'équilibre trouvé précédment ne sont pas toujours stable, l'équilibre peut être stable ou instable
+\subsection{Stabilité des points d'équilibre}
+Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous n'avons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon \\\\ 
+$A$ a pour expression :\\\\
+$A=$
+\begin{pmatrix}
+    -\sigma & \sigma & 0\\
+    \rho & -1 & -x\\
+       y & x & -\beta 
+\end{pmatrix}\\\\
+
+Interessons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:\\\\
+$A=$
+\begin{pmatrix}
+    -\sigma & \sigma & 0\\
+    \rho & -1 & 0\\
+       0 & 0 & -\beta 
+\end{pmatrix}\\\\
+
+les valeurs propres de A sont alors les solutions de
+ $det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta) $
+
+ En resolvant, on trouve alors trois solution: $\lambda_{1}=$\\\\
+ On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, en effet si $\rho<1$ alors $\lambda_{1}$ est négative tout comme $\lambda_{2}$ et $\lambda_{3}$, dans ce cas l'équilibre du point d'équilibre $(0,0,0)$ est stable. Cependant, si $\rho>1$, alors $\lambda_{1}$ est positive, donc l'équilibre n'est pas stable.
+
 \section{Dimension expérimentale}
