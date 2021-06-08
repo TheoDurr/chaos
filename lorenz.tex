@@ -9,9 +9,9 @@ Le système de Lorenz s'écrit:
 \[
     \left\{
     \begin{array}{rcl}
-        \dfrac{dx}{dt}&=&\sigma[y(t)-x(t)]\\
-        \dfrac{dy}{dt}&=&\rho x(t)-y(t)z(t)\\
-        \dfrac{dz}{dt}&=&x(t)y(t)-\beta z(t)\\
+        \dfrac{dx}{dt}&=&\sigma[y-x]\\
+        \dfrac{dy}{dt}&=&x(\rho-z)-y\\
+        \dfrac{dz}{dt}&=&xy-\beta z\\
     \end{array}
     \right.
 \]
@@ -26,8 +26,32 @@ Dans ces équations: \\
 $\sigma$  correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement et ça diffusivité thermique.\\\\
 $\rho$    correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide \\\\
 $\beta $  est une valeur dépendand de la couche de l'atmosphère\\\\
-$x(t)$, $y(t)$, $z(t)$ représente l'état du système au court du temps, remis dans leur context physique, $x(t)$ est proportionnel à l'intensité du mouvement de convection, $y(t)$ est est proportionnel à la différence de température entre les courants ascendants et descendants. $z(t)$ est proportionnel à l'écart du profil de température vertical par rapport à un profil linéaire.    
+$x$, $y$, $z$ représente l'état du système au court du temps, remis dans leur context physique, $x$ est proportionnel à l'intensité du mouvement de convection, $y$ est proportionnel à la différence de température entre les courants ascendants et descendants. $z$ est proportionnel à l'écart du profil de température vertical par rapport à un profil linéaire.    
 
 \section{Dimension mathématique}
-\subsection{Etude des points stables}
+
+\subsection{Equilibres du modèle}
+Nous allons nous intéresser aux point auxquelles le modèle est stable, c’est-à-dire les points d’équilibre $(x,y,z)$ vérifiant $x'=y'=z'=0$, cela revient a résoudre le syteme suivant :\\
+\[
+    \left\{
+    \begin{array}{rcl}
+        \sigma(y-x)&=&0\\
+        x(\rho-z)-y&=&0\\
+        xy-\beta z&=&0\\
+    \end{array}
+    \right.
+\]\\
+
+Avec $\sigma$, $\rho$ et $\beta$ des réels positif.
+
+On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$.
+A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:\\
+
+Si $\beta(\rho-1)\geq 0$ alors $x= \pm \sqrt{(\beta(\rho-1)}$, $y= \pm \sqrt{(\beta(\rho-1)}$ et $z=\rho-1$\\
+autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à savoir:\\
+ $(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1)$, $(-\sqrt{(\beta(\rho-1)}; -\sqrt{(\beta(\rho-1)}; \rho-1)$ et $(0,0,0)$\\\\
+ dans le cas contraire il admet un seul point d'équilibre à savoir $(0,0,0)$\\
+
+ \subsection{Stabilité des points d'équilibre}
+
 \section{Dimension expérimentale}
