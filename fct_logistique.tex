@@ -35,7 +35,7 @@ Nous allons dans notre cas, étudier une version discrète de ce modèle, c'est-
 \subsection{Etude de la version discrète}
 On cherche à observer numériquement le comportement de la suite $(u_n)$. Pour cela, nous avons observé le comportement des $30$ premiers termes de la suite, pour $u_0 = 0.5$ et $\lambda\in\{0,5; 1,5; 2,5; 3,2; 3,5\}$.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=\textwidth]{experimentation_numerique.pdf}
     \end{center}
@@ -49,7 +49,7 @@ Pour $\lambda = 3,2$, la suite des termes pairs $(u_{2n})$ converge vers approxi
 \subsection{Sensibilité aux conditions initiales}
 Pour cette partie, fixons $\lambda = 4$ et étudions la suite logistique avec $u_0 = 0,4$ et $u'_0 = 0,4 + 10^{-8}$. On remarque sur la figure \ref{fig:etude_u0} (page \pageref{fig:etude_u0}) que les courbes se superposent parfaitement jusqu'au 17\ieme{} terme. Au delà, les courbes commencent à se dissocier et se dissocient rapidement.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=\textwidth]{variation_u0.pdf}
     \end{center}
@@ -62,6 +62,9 @@ Cette partie illustre le fait que pour $\lambda = 4$, la suite $(u_n)$ a une for
 % Transition
 
 \section{\'Etude mathématique}
+\subsection{\'Etude du cas : \texorpdfstring{$\lambda \leq 1$}{Lg}}
+Durant toute cette partie, on supposera $\lambda \leq 1$.
+
 En plus des études graphiques, nous allons maintenant nous intéresser à des preuves mathématiques validant les hypothèses que nous aurions pu émettre.
 Tout d'abord, nous aurons besoin des bornes de $f_\lambda$ durant toute la suite de l'étude. Montrons donc que $f_\lambda([0;1])\in[0;1]$ :
 
@@ -101,13 +104,76 @@ Calculons les bornes de $y$ en fonction de $\lambda$ :
 \[
     \begin{array}{rcccl}
         0 &\leq& \lambda &\leq& 1 \\
-        0 &\leq& \dfrac{\lambda}{4} &\leq& \dfrac{1}{4}
+        \Longleftrightarrow 0 &\leq& \dfrac{\lambda}{4} &\leq& \dfrac{1}{4}
     \end{array}
 \]
 
-Comme $\frac{1}{4} < 1$, le sommet ne dépassera jamais $1$. Donc $\boxed{f([0;1]) \in[0;1]}$
+Comme $\frac{1}{4} < 1$, le sommet ne dépassera jamais $1$. Donc $\boxed{f([0;1]) \subset[0;1]}$. Cela ne pose pas non plus de soucis lorsqu'on étudie la version discrète à l'aide de suites, car comme $u_0 \in[0;1]$ et que $f_\lambda([0;1])\subset[0;1]$, alors $f_\lambda(u_n) = u_{n+1}\in[0;1]$.
 
-\subsection{\'Etude du cas : \texorpdfstring{$\lambda \leq 1$}{Lg}}
+
+Nous voyons graphiquement que pour $\lambda \leq 1$, la suite semble converger vers $0$. Prouvons cela mathématiquement en étudiant la monotonie de la suite $(u_n)$.
+$$
+    \begin{array}{rcl}
+        u_{n+1}-u_n &=& \lambda u_n(1-u_n)-u_n \\
+                    &=& u_n(\lambda(1-u_n)-1) \\
+    \end{array}
+$$
+Or,
+$$
+    \begin{array}{rcl}
+        &&u_n \leq 1 \\
+        &\Longleftrightarrow& 1 - u_n \leq 1 \\
+        &\Longleftrightarrow& \lambda(1 - u_n) \leq 1 \\
+        &\Longleftrightarrow& \lambda(1 - u_n) - 1 \leq 0 \\
+        &\Longleftrightarrow& u_n(\lambda(1 - u_n) - 1) \leq 0 \\
+    \end{array}
+$$
+La suite est donc \textbf{décroissante}. De plus, elle est minorée par $0$. Elle est donc bien \textbf{convergente}. Il serait également intéressant de connaître la limite de la suite $(u_n)$, élément crucial afin de déterminer son comportement en fonction de $\lambda$.
+\begin{axiome}[Point fixe]
+    En mathématique, pour une application $f$ d'un ensemble $E$ dans lui-même, un élément $x$ de $E$ est un \textbf{point fixe de $f$} si
+    \[
+        f(x) = x  
+    \]
+    Graphiquement, les points fixes d'une fonction $f$ (d'une variable réelle, à valeurs réelles) s'obtiennent en traçant la droite d'équation $y = x$ : tous les points d'intersection de la courbe représentative de $f$ avec cette droite sont alors les points fixes de $f$.
+\end{axiome}
+\begin{axiome}[Point fixe et convergence]
+    On considère une fonction continue $f : E \longrightarrow E$ et $(u_n)$ une suite récurrente définie par sa valeur initiale $u_0$ et par la relation de récurrence $u_{n+1} = f(u_n)$.
+    
+    Si $(u_n)$ converge vers un élément $l$ de $E$, la limite $l$ est nécessairement un point fixe de $f$.
+\end{axiome}
+
+Afin de trouver la limite de la suite $(u_n)$, nous allons donc calculer les points fixes de $f_\lambda$ pour $\lambda \leq 1$. C'est à dire, résoudre l'équation $f_\lambda(x) = x$:
+\[
+    \begin{array}{rcl}
+        && f_\lambda(x) = x \\
+        &\Longleftrightarrow& \lambda x(1-x)-x = 0 \\
+        &\Longleftrightarrow& x(\lambda(1-x)-1) = 0 \\
+        &\Longleftrightarrow& -\lambda x(-(1-x)+\frac{1}{\lambda}) = 0 \\
+        &\Longleftrightarrow& -\lambda x(x-1+\frac{1}{\lambda}) = 0 \\
+        &\Longleftrightarrow& -\lambda x(x-(1-\frac{1}{\lambda})) = 0 \\
+    \end{array}
+\]
+
+Par déduction directe, on peut trouver les solutions de l'équation
+$$
+    f_\lambda(x) = x \Longleftrightarrow \left\{
+            \begin{array}{rcl}
+                    x &=& 0 \\
+                    x &=& 1 - \dfrac{1}{\lambda}
+            \end{array}
+        \right.
+$$
+Cette équation a donc deux solutions : $x_1 = 0$ et $x_2 = 1 - \frac{1}{\lambda}$. Or, $\lambda \leq 1$, donc $x_2 \leq 0$. $x_2$ n'est donc pas un élément de $E$, il ne s'agit donc pas d'un point fixe. Ainsi, pour $\lambda \leq 1$, la fonction $f_\lambda$ possède un unique point fixe sur $[0,1]$ qui est $x = 0$. Nous avons montré précédemment que la suite $(u_n)$ tend vers une limite $l$. Par construction de $(u_n)$ et par continuité de $f_\lambda$, on a 
+$$
+    \left\{
+        \begin{array}{rcl}
+                u_{n+1} &=& f(u_n) \\
+                u_{n+1} &\longrightarrow& l \\
+                f(u_n)  &\longrightarrow& f(l) \\
+        \end{array}
+    \right.
+$$
+On en déduit donc que $\boxed{l = f(l)}$, c'est-à-dire que $l$ est un \textbf{point fixe} de $f_\lambda$, et $l=0$.
 
 \subsection{\'Etude du régime stationnaire : \texorpdfstring{$1 < \lambda < 3$}{Lg}}
 \subsection{\'Etude d'un cycle d'ordre 2 : \texorpdfstring{$3 < \lambda < 1+\sqrt{6}$}{Lg}}
