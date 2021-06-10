@@ -112,6 +112,44 @@ Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}
 
 Il n'est pas simple de comprendre ce qu'il ce passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses point d'équilibre instable passant de l'un à l'autre de façon imprédictible.
 
-A l'aide d'un graphique on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteur avec une couleur différente sur le même graphique et en changeant très légèrement l'une des trois conditions initiale, on observe que les deux attracteur ne se superposent pas.
+A l'aide d'un graphique on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteur avec une couleur différente sur le même graphique et en changeant très légèrement l'une des trois conditions initiale (0.0000001 dans ce cas), on observe que les deux attracteur ne se superposent pas.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{initiale.pdf}
+    \caption{Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$, les conditions initiales de l'attracteur bleu sont $(x_0=10,y_0=10,z_0=10)$ les conditions initiale de l'attracteur orange sont $(x_0=10.0000001,y_0=10,z_0=10)$} 
+\end{figure}
 
 \section{Dimension expérimentale}
+
+Nous allons maintenant nous intéresser au moulin à eau de Lorenz, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif mécanique qui possède un comportement chaotique et qui possède un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude le sens de rotation de la roue ou ça vitesse de rotation.
+
+\subsection{Description du dispositif}
+
+Le moulin est composé d'une roue sur laquelle se trouve un certain nombre de récipient avec le fond percé, fixé autour de la roue, une source d'eau placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipient étant percé ils se vident et font varié la position du centre des masses, le comportement de la roue est alors imprévisible.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{moulin.pdf}
+    \caption{Moulin de Lorenz réalisé par l'unitversité de Harvard} 
+\end{figure}
+
+\subsection{Lien avec l'attracteur de Lorenz}
+Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique nous admettrons que l'équation du mouvment de la roue correpsond au système différentiel suivant:\\
+\[
+    \left\{
+    \begin{array}{rcl}
+        A'&=&k*A+\omega*B\\
+        B'&=&-\omega*A-k*B+q\\
+        \omega'&=&\dfrac{g*\pi*R*A-\alpha*\omega}{\theta }\\
+    \end{array}
+    \right.
+\]\\\\
+Avec: $k$ le débit de fuite des récipient\\
+$R$ le rayon de la roue\\
+$q$ le débit de la source d'eau\\
+$\alpha$ le taux d'amortissement de la rotation\\
+$\theta$ le moment d'inertie de la roue\\
+$\omega$ la fonction correspondant à la vitesse angulaire\\
+$A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$\\
+$B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$\\\\
+
+De façon similaire à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:
