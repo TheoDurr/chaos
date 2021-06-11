@@ -152,4 +152,24 @@ $\omega$ la fonction correspondant à la vitesse angulaire\\
 $A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$\\
 $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$\\\\
 
-De façon similaire à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:
+a l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{moulin_graph.pdf}
+    \caption{Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
+\end{figure}
+
+On observe alors un attracteur très similaire à l'atracteur de Lorenz, physiquement parlant ce graphique représente le déplacement du center des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$\\
+
+De façon analogue à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:\\
+\[
+    \left\{
+    \begin{array}{rcl}
+        k*A+\omega*B&=&0\\
+        -\omega*A-k*B+q&=&0\\
+        \dfrac{g*\pi*R*A-\alpha*\omega}{\theta }&=&0\\
+    \end{array}
+    \right.
+\]\\
+
+A l'aide d'une calculatrice, ont trouve les solutions suivante:
