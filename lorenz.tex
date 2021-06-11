@@ -47,7 +47,16 @@ Avec $\sigma$, $\rho$ et $\beta$ des réels positif.
 On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$.
 A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:\\
 
-Si $\beta(\rho-1)\geq 0$ alors $x= \pm \sqrt{(\beta(\rho-1)}$, $y= \pm \sqrt{(\beta(\rho-1)}$ et $z=\rho-1$\\
+Si $\beta(\rho-1)\geq 0$ alors \\
+\[
+    \left\{
+    \begin{array}{rcl}
+        x&=& \pm \sqrt{(\beta(\rho-1)}\\
+        y&=& \pm \sqrt{(\beta(\rho-1)}\\
+        z&=&\rho-1\\
+    \end{array}
+    \right.
+\]\\
 autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à savoir:\\
  $(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1)$, $(-\sqrt{(\beta(\rho-1)}; -\sqrt{(\beta(\rho-1)}; \rho-1)$ et $(0,0,0)$\\\\
  dans le cas ou $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$\\
@@ -85,8 +94,8 @@ Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, no
         \caption{Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure} 
 
-On obtient un graphique en trois dimension a l'allure étrange, les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et car elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.\\\\
-Essayons maintenant de comprendre pourquoi obtient on ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$  
+On obtient un graphique en trois dimension a l'allure étrange(FIGURE 3.1), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et car elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.\\\\
+Essayons maintenant de comprendre pourquoi obtient on ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE(3.2) 
 
 \begin{figure}
     \includegraphics[width=\textwidth]{rho_stable.pdf}
@@ -94,7 +103,7 @@ Essayons maintenant de comprendre pourquoi obtient on ce graphique. L'aspect de 
 \end{figure}
 On constate que le système évolue vers le seul point d'équilibre stable $(0,0,0)$ car $\rho<1$
 
-représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$
+représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE 3.3
 
 \begin{figure}
     \includegraphics[width=\textwidth]{rho_stable1.pdf}
@@ -103,7 +112,7 @@ représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfr
 
 On observe ici que le système évolue vers l'un des deux point d'équilibres représenté par des point rouge sur le graphique, cela s'explique car dans ce cas $\rho>1$ donc le point $(0,0,0)$ représenté par le point bleu est instable, de plus $\rho < \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}=24.74$ donc les deux autres point d'équilibre sont stable, le système évolue donc vers l'un ou l'autre dépendant de la valeurs de $\rho$ et des conditions initiales.  
 
-Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$
+Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE 3.4
 
 \begin{figure}
     \includegraphics[width=\textwidth]{rho_instable.pdf}
@@ -112,7 +121,7 @@ Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}
 
 Il n'est pas simple de comprendre ce qu'il ce passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses point d'équilibre instable passant de l'un à l'autre de façon imprédictible.
 
-A l'aide d'un graphique on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteur avec une couleur différente sur le même graphique et en changeant très légèrement l'une des trois conditions initiale (0.0000001 dans ce cas), on observe que les deux attracteur ne se superposent pas.
+A l'aide d'un graphique on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. FIGURE 3.5 En traçant deux attracteur avec une couleur différente sur le même graphique et en changeant très légèrement l'une des trois conditions initiale (0.0000001 dans ce cas), on observe que les deux attracteur ne se superposent pas.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{initiale.pdf}
@@ -121,7 +130,7 @@ A l'aide d'un graphique on peut également observer la forte dépendace aux cond
 
 \section{Dimension expérimentale}
 
-Nous allons maintenant nous intéresser au moulin à eau de Lorenz, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif mécanique qui possède un comportement chaotique et qui possède un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude le sens de rotation de la roue ou ça vitesse de rotation.
+Nous allons maintenant nous intéresser au moulin à eau de Lorenz FIGURE 3.6, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif mécanique qui possède un comportement chaotique et qui possède un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude le sens de rotation de la roue ou ça vitesse de rotation.
 
 \subsection{Description du dispositif}
 
@@ -152,10 +161,10 @@ $\omega$ la fonction correspondant à la vitesse angulaire\\
 $A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$\\
 $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$\\\\
 
-a l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:
+a l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:FIGURE 3.7
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{moulin_graph.pdf}
+    \includegraphics[width=\textwidth]{Moulin_graph.pdf}
     \caption{Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
 \end{figure}
 
@@ -172,4 +181,41 @@ De façon analogue à l'attracteur de Lorenz on peut recherché les points d'éq
     \right.
 \]\\
 
-A l'aide d'une calculatrice, ont trouve les solutions suivante:
+A l'aide d'un logiciel de calcule formel, ont trouve les solutions suivante:\\
+\[
+    \left\{
+    \begin{array}{rcl}
+        A_1&=&0\\
+        \omega_1&=&\dfrac{q}{k}\\
+        B_1&=&0
+
+    \end{array}
+    \right.
+\]\\
+
+\[
+    \left\{
+    \begin{array}{rcl}
+        A_2&=&\dfrac{-\alpha*\sqrt{\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha}}}{g*\pi*R}\\
+        \omega_2&=&\dfrac{\alpha*k}{g*\pi*R}\\
+        B_2&=&-\sqrt{\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha}}
+
+    \end{array}
+    \right.
+\]\\
+\\
+\[
+    \left\{
+    \begin{array}{rcl}
+        A_3&=&\dfrac{\alpha*\sqrt{\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha}}}{g*\pi*R}\\
+        \omega_3&=&\dfrac{\alpha*k}{g*\pi*R}\\
+        B_3&=&\sqrt{\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha}}
+
+    \end{array}
+    \right.
+\]\\
+
+Les deux solutions conjugué sont représenter par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisi aucun des points d'équilibre n'est stable, donc comme pour l'attracteur de Lorenz le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calcules analogue à la partie précédente il serait possible de calculer les valeurs des différentes variables à partir des quelles les points sont stable ou instable. 
+Sur ce même graphique on peu également constater la forte dépendance aux conditions initiales, l'attracteur bleu à pour conditions initiales $(A_0=1,B_0=1,\omega_0=1)$ et l'attracteur rouge $(A_0=1.000001,B_0=1,\omega_0=1)$ on constante effectivement que leur évolution diverge fortement malgrès la faible variation de départ.
+
+
