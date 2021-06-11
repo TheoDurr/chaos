@@ -47,7 +47,7 @@ Avec $\sigma$, $\rho$ et $\beta$ des réels positif.
 On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$.
 A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:\\
 
-Si $\beta(\rho-1)\geq 0$ alors \\
+Si $\beta(\rho-1)\geq 0$ alors :
 \[
     \left\{
     \begin{array}{rcl}
@@ -64,21 +64,19 @@ autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à sa
 \subsection{Stabilité des points d'équilibre}
 Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous n'avons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon \\\\ 
 $A$ a pour expression :\\\\
-$$A=
-\begin{pmatrix}
+$$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
     \rho & -1 & -x\\
        y & x & -\beta 
-\end{pmatrix}\\\\
-$$
+\end{pmatrix}\\\\$$
+
 Interessons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:\\\\
-$$A=
-\begin{pmatrix}
+$$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
     \rho & -1 & 0\\
        0 & 0 & -\beta 
-\end{pmatrix}\\\\
-$$
+\end{pmatrix}\\\\$$
+
 les valeurs propres de A sont alors les solutions de
  $det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta) $
 
