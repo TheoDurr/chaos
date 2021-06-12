@@ -15,11 +15,11 @@ Le système de Lorenz s'écrit:
     \end{array}
     \right.
 \]
-Ces équations sont un modèle très simplifier crée par Lorenz pour modélisé le fonctionnement 
-de l’atmosphère terrestre. Il a décidé de cherché un modèle simple car 
+Ces équations sont un modèle très simplifier crée par Lorenz pour modéliser le fonctionnement 
+de l’atmosphère terrestre. Il a décidé de chercher un modèle simple car 
 les équations décrivant l’atmosphère de façon précise était beaucoup trop compliqué à résoudre
  numériquement à l’époque de Lorenz et il souhaitais pouvoir étudié  le phénomène de convection
-de Rayleigh-Bénard à l’aide de son modèle simplifié. Lors de l'étude de ce modèle il remarquera que certaines valeurs des paramètre donne un comportement
+de Rayleigh-Bénard à l’aide de son modèle simplifié. Lors de l'étude de ce modèle il remarquera que certaines valeurs des paramètres donnent un comportement
 chaotique au système.\\
 
 
@@ -46,7 +46,7 @@ Nous allons nous intéresser aux points auxquels le modèle est stable, c’est-
     \right.
 \]
 
-Avec $\sigma$, $\rho$ et $\beta$ des réels positif.
+Avec $\sigma$, $\rho$ et $\beta$ des réels positifs.
 
 On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$. A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:
 
@@ -133,7 +133,7 @@ Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}
     \caption{\label{fig:rho_instable}Attracteur de Lorenz pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 
-Il n'est pas simple de comprendre ce qu'il ce passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses point d'équilibre instable passant de l'un à l'autre de façon imprédictible.
+Il n'est pas simple de comprendre ce qu'il se passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses points d'équilibre instable passant de l'un à l'autre de façon imprédictible.
 
 A l'aide d'un graphique, on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteurs avec une couleur différente sur le même graphique (Figure \ref{fig:initiale}) et en changeant très légèrement l'une des trois conditions initiales ($0.0000001$ dans ce cas), on observe que les deux attracteurs ne se superposent pas.
 
@@ -235,7 +235,8 @@ A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 
 Avec $\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha} \geq 0$ et $\alpha\neq 0$\\
 
-Les deux solutions conjugué sont représenter par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisi aucun des points d'équilibre n'est stable, donc comme pour l'attracteur de Lorenz le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calcules analogue à la partie précédente il serait possible de calculer les valeurs des différentes variables à partir des quelles les points sont stable ou instable. 
+Les deux solutions symétriques sont représenter par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisi aucun des points d'équilibre n'est stable, donc comme pour l'attracteur de Lorenz le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calcules analogue à la partie précédente il serait possible de calculer les valeurs des différentes variables à partir desquelles les points sont stable ou instable. 
 Sur ce même graphique on peu également constater la forte dépendance aux conditions initiales, l'attracteur bleu à pour conditions initiales $(A_0=1,B_0=1,\omega_0=1)$ et l'attracteur rouge $(A_0=1.000001,B_0=1,\omega_0=1)$ on constante effectivement que leur évolution diverge fortement malgrès la faible variation de départ.
+
 
 
