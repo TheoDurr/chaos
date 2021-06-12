@@ -10,11 +10,14 @@
     \include{avant_propos.tex}
 
     % Remerciements
-    %\include{remerciements.tex}
+    \include{remerciements.tex}
 
     % Table des matières
     % ! DISPLAY TALBEOFCONTENT
-    %\tableofcontents 
+    {
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    }
 
     % Introduction
     \include{introduction.tex}
@@ -33,4 +36,10 @@
 
     % Annexes
     \include{annexes.tex}
+
+    % Sources
+    \include{sources.tex}
+
+    % Quatrième de couverture
+    \include{couverture_arriere.tex}
 \end{document}
