@@ -19,13 +19,14 @@ Ces équations sont un modèle très simplifier crée par Lorenz pour modélisé
 de l’atmosphère terrestre. Il a décidé de cherché un modèle simple car 
 les équations décrivant l’atmosphère de façon précise était beaucoup trop compliqué à résoudre
  numériquement à l’époque de Lorenz et il souhaitais pouvoir étudié  le phénomène de convection
-de Rayleigh-Bénard à l’aide de son modèle simplifié.\\
+de Rayleigh-Bénard à l’aide de son modèle simplifié. Lors de l'étude de ce modèle il remarquera que certaines valeurs des paramètre donne un comportement
+chaotique au système.\\
 
 
 Dans ces équations: \\
-$\sigma$  correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement et ça diffusivité thermique.\\\\
-$\rho$    correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide \\\\
-$\beta $  est une valeur dépendand de la couche de l'atmosphère\\\\
+$\sigma$  correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement d'une entité et ça diffusivité thermique.\\\\
+$\rho$    correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide. \\\\
+$\beta $  est une valeur dépendand de la couche de l'atmosphère dans laquelle on se place\\\\
 $x$, $y$, $z$ représente l'état du système au court du temps, remis dans leur context physique, $x$ est proportionnel à l'intensité du mouvement de convection, $y$ est proportionnel à la différence de température entre les courants ascendants et descendants. $z$ est proportionnel à l'écart du profil de température vertical par rapport à un profil linéaire.    
 
 \section{Dimension mathématique}
@@ -62,7 +63,7 @@ autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à sa
  dans le cas ou $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$\\
  
 \subsection{Stabilité des points d'équilibre}
-Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous n'avons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon \\\\ 
+Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue en linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous ne maîtrisons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon \\\\ 
 $A$ a pour expression :\\\\
 $$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
@@ -78,22 +79,23 @@ $$A=\begin{pmatrix}
 \end{pmatrix}\\\\$$
 
 les valeurs propres de A sont alors les solutions de
- $det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta) $
+ $det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta)=0 $
 
  En resolvant, on trouve alors trois solution: $\lambda_{1}=\dfrac{\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}-\sigma-1}{2}$, $\lambda_{2}=\dfrac{-(\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}+\sigma+1)}{2}$, $\lambda_{3}=-\beta$\\\\
 
- On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, en effet si $\rho<1$ alors $\lambda_{1}$ est négative tout comme $\lambda_{2}$ et $\lambda_{3}$, dans ce cas l'équilibre du point d'équilibre $(0,0,0)$ est stable. Cependant, si $\rho>1$, alors $\lambda_{1}$ est positive, donc l'équilibre n'est pas stable.\\\\
- En procédant de façon similaire on peut déterminer la valeur critique de $\rho$ pour laquelle l'équilibre des deux autres points est instable. Ainsi si $\rho > \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}$ l'enssemble des points d'équilibres est instable et le système adapte un comportement particulié.
- \section{Visualisation graphique}
-Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser a ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un algorithm python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.\\
+ On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, en effet si $\rho<1$ alors $\lambda_{1}$ est négative tout comme $\lambda_{2}$ et $\lambda_{3}$, dans ce cas le point d'équilibre $(0,0,0)$ est stable. Cependant, si $\rho>1$, alors $\lambda_{1}$ est positive, donc l'équilibre n'est pas stable.\\\\
+ En procédant de façon similaire on peut déterminer la valeur critique de $\rho$ pour laquelle l'équilibre des deux points non nul est instable. Ainsi si $\rho > \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}$ l'enssemble des points d'équilibres est instable et le système adapte un comportement particulié.
+
+ \section{Observation graphique}
+Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser à ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.\\
 
 \begin{figure}
         \includegraphics[width=\textwidth]{Attracteur1.pdf}
         \caption{Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure} 
 
-On obtient un graphique en trois dimension a l'allure étrange(FIGURE 3.1), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et car elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.\\\\
-Essayons maintenant de comprendre pourquoi obtient on ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE(3.2) 
+On obtient un graphique en trois dimension a l'allure étrange(FIGURE 3.1), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.\\\\
+Essayons maintenant de comprendre pourquoi on obtient ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE(3.2) 
 
 \begin{figure}
     \includegraphics[width=\textwidth]{rho_stable.pdf}
@@ -128,11 +130,12 @@ A l'aide d'un graphique on peut également observer la forte dépendace aux cond
 
 \section{Dimension expérimentale}
 
-Nous allons maintenant nous intéresser au moulin à eau de Lorenz FIGURE 3.6, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif mécanique qui possède un comportement chaotique et qui possède un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude le sens de rotation de la roue ou ça vitesse de rotation.
+Nous allons maintenant nous intéresser au moulin à eau de Lorenz FIGURE 3.6, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif physique imaginé par Malkus et Howard en 1973 suite à l'article de
+Lorenz sur la dynamique chaotique en hydrodynamique, leur objectif était de crée un système physique permettant de retrouvé les équations établit par Lorenz. Ce dispositif possède un comportement chaotique et possède évidement un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude et précision les changements de sens de rotation de la roue ou ça vitesse de rotation.
 
 \subsection{Description du dispositif}
 
-Le moulin est composé d'une roue sur laquelle se trouve un certain nombre de récipient avec le fond percé, fixé autour de la roue, une source d'eau placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipient étant percé ils se vident et font varié la position du centre des masses, le comportement de la roue est alors imprévisible.
+Le moulin est composé d'une roue positioné verticalement ou parfois penchée, sur laquelle se trouve un certain nombre de récipient avec le fond percé, ses récipient sont fixé autour de la roue, une source d'eau est placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipient étant percé ils se vident et font varié la position du centre des masses, le comportement de la roue est alors imprévisible.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{moulin.pdf}
@@ -159,7 +162,7 @@ $\omega$ la fonction correspondant à la vitesse angulaire\\
 $A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$\\
 $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$\\\\
 
-a l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:FIGURE 3.7
+A l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:FIGURE 3.7
 
 \begin{figure}
     \includegraphics[width=\textwidth]{Moulin_graph.pdf}
@@ -212,6 +215,8 @@ A l'aide d'un logiciel de calcule formel, ont trouve les solutions suivante:\\
     \end{array}
     \right.
 \]\\
+
+Avec $\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha} \geq 0$ et $\alpha\neq 0$\\
 
 Les deux solutions conjugué sont représenter par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisi aucun des points d'équilibre n'est stable, donc comme pour l'attracteur de Lorenz le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calcules analogue à la partie précédente il serait possible de calculer les valeurs des différentes variables à partir des quelles les points sont stable ou instable. 
 Sur ce même graphique on peu également constater la forte dépendance aux conditions initiales, l'attracteur bleu à pour conditions initiales $(A_0=1,B_0=1,\omega_0=1)$ et l'attracteur rouge $(A_0=1.000001,B_0=1,\omega_0=1)$ on constante effectivement que leur évolution diverge fortement malgrès la faible variation de départ.
