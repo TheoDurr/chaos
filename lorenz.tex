@@ -23,16 +23,19 @@ de Rayleigh-Bénard à l’aide de son modèle simplifié. Lors de l'étude de c
 chaotique au système.\\
 
 
-Dans ces équations: \\
-$\sigma$  correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement d'une entité et ça diffusivité thermique.\\\\
-$\rho$    correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide. \\\\
-$\beta $  est une valeur dépendand de la couche de l'atmosphère dans laquelle on se place\\\\
-$x$, $y$, $z$ représente l'état du système au court du temps, remis dans leur context physique, $x$ est proportionnel à l'intensité du mouvement de convection, $y$ est proportionnel à la différence de température entre les courants ascendants et descendants. $z$ est proportionnel à l'écart du profil de température vertical par rapport à un profil linéaire.    
+Dans ces équations:
+\begin{itemize}
+    \item $\sigma$ correspond au nombre de Prandtl, il s'agit d'un nombre sans dimension obtenu en calculant le rapport entre la diffusivité de la quantité de mouvement d'une entité et ça diffusivité thermique.
+    \item $\rho$ correspond au nombre de Rayleigh, il s'agit d'une valeur utilisé en mécanique des fluides, il permet de caractérisé le transfert de chaleur au sein d'un fluide.
+    \item $\beta $  est une valeur dépendand de la couche de l'atmosphère dans laquelle on se place
+    \item $x$, $y$ et $z$ représentent l'état du système au court du temps, remis dans leur contexte physique, $x$ est proportionnel à l'intensité du mouvement de convection, $y$ est proportionnel à la différence de température entre les courants ascendants et descendants, et $z$ est proportionnel à l'écart du profil de température vertical par rapport à un profil linéaire.
+\end{itemize}
+
 
 \section{Dimension mathématique}
 
 \subsection{Equilibres du modèle}
-Nous allons nous intéresser aux point auxquelles le modèle est stable, c’est-à-dire les points d’équilibre $(x,y,z)$ vérifiant $x'=y'=z'=0$, cela revient a résoudre le syteme suivant :\\
+Nous allons nous intéresser aux points auxquels le modèle est stable, c’est-à-dire les points d’équilibre $(x,y,z)$ vérifiant $x'=y'=z'=0$, cela revient à résoudre le sytème suivant :
 \[
     \left\{
     \begin{array}{rcl}
@@ -41,12 +44,11 @@ Nous allons nous intéresser aux point auxquelles le modèle est stable, c’est
         xy-\beta z&=&0\\
     \end{array}
     \right.
-\]\\
+\]
 
 Avec $\sigma$, $\rho$ et $\beta$ des réels positif.
 
-On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$.
-A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:\\
+On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$. A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:
 
 Si $\beta(\rho-1)\geq 0$ alors :
 \[
@@ -58,36 +60,44 @@ Si $\beta(\rho-1)\geq 0$ alors :
     \end{array}
     \right.
 \]\\
-autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à savoir:\\
- $(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1)$, $(-\sqrt{(\beta(\rho-1)}; -\sqrt{(\beta(\rho-1)}; \rho-1)$ et $(0,0,0)$\\\\
- dans le cas ou $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$\\
+autrement dit lorsque $\rho\geq 1$ le système admet 3 points d'équilibre à savoir:
+$$(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1), (-\sqrt{(\beta(\rho-1)}; -\sqrt{(\beta(\rho-1)}; \rho-1)$$
+et $(0,0,0)$ dans le cas où $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$
  
 \subsection{Stabilité des points d'équilibre}
-Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue en linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous ne maîtrisons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon \\\\ 
-$A$ a pour expression :\\\\
+Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue en linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous ne maîtrisons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon
+$A$ a pour expression :
 $$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
     \rho & -1 & -x\\
        y & x & -\beta 
 \end{pmatrix}\\\\$$
 
-Interessons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:\\\\
+Interessons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:
 $$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
     \rho & -1 & 0\\
        0 & 0 & -\beta 
-\end{pmatrix}\\\\$$
+\end{pmatrix}$$
 
 les valeurs propres de A sont alors les solutions de
- $det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta)=0 $
+$$det(A-\lambda)=(\sigma*\rho-(\lambda+1)*(\lambda+\sigma))*(\lambda+\beta)=0$$
 
- En resolvant, on trouve alors trois solution: $\lambda_{1}=\dfrac{\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}-\sigma-1}{2}$, $\lambda_{2}=\dfrac{-(\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}+\sigma+1)}{2}$, $\lambda_{3}=-\beta$\\\\
+En résolvant, on trouve alors trois solutions: 
+\[
+    \left\{
+    \begin{array}{rcl}
+        x&=& \lambda_{1}=\dfrac{\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}-\sigma-1}{2}\\[12pt]
+        y&=& \lambda_{2}=\dfrac{-(\sqrt{4*\sigma*\rho+\sigma^2-2*\sigma+1}+\sigma+1)}{2}\\[12pt]
+        z&=& \lambda_{3}=-\beta
+    \end{array}
+    \right.
+\]
+On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, en effet si $\rho<1$ alors $\lambda_{1}$ est négative tout comme $\lambda_{2}$ et $\lambda_{3}$, dans ce cas le point d'équilibre $(0,0,0)$ est stable. Cependant, si $\rho>1$, alors $\lambda_{1}$ est positive, donc l'équilibre n'est pas stable.\\\\
+En procédant de façon similaire on peut déterminer la valeur critique de $\rho$ pour laquelle l'équilibre des deux points non nul est instable. Ainsi si $\rho > \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}$, l'ensemble des points d'équilibres est instable et le système adapte un comportement particulier.
 
- On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, en effet si $\rho<1$ alors $\lambda_{1}$ est négative tout comme $\lambda_{2}$ et $\lambda_{3}$, dans ce cas le point d'équilibre $(0,0,0)$ est stable. Cependant, si $\rho>1$, alors $\lambda_{1}$ est positive, donc l'équilibre n'est pas stable.\\\\
- En procédant de façon similaire on peut déterminer la valeur critique de $\rho$ pour laquelle l'équilibre des deux points non nul est instable. Ainsi si $\rho > \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}$ l'enssemble des points d'équilibres est instable et le système adapte un comportement particulié.
-
- \section{Observation graphique}
-Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser à ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.\\
+\section{Observation graphique}
+Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser à ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.
 
 \begin{figure}
         \includegraphics[width=\textwidth]{Attracteur1.pdf}
@@ -139,11 +149,11 @@ Le moulin est composé d'une roue positioné verticalement ou parfois penchée, 
 
 \begin{figure}
     \includegraphics[width=\textwidth]{moulin.pdf}
-    \caption{Moulin de Lorenz réalisé par l'unitversité de Harvard} 
+    \caption{Moulin de Lorenz réalisé par l'université de Harvard} 
 \end{figure}
 
 \subsection{Lien avec l'attracteur de Lorenz}
-Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique nous admettrons que l'équation du mouvment de la roue correpsond au système différentiel suivant:\\
+Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique nous admettrons que l'équation du mouvment de la roue correpsond au système différentiel suivant:
 \[
     \left\{
     \begin{array}{rcl}
@@ -152,15 +162,18 @@ Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établ
         \omega'&=&\dfrac{g*\pi*R*A-\alpha*\omega}{\theta }\\
     \end{array}
     \right.
-\]\\\\
-Avec: $k$ le débit de fuite des récipient\\
-$R$ le rayon de la roue\\
-$q$ le débit de la source d'eau\\
-$\alpha$ le taux d'amortissement de la rotation\\
-$\theta$ le moment d'inertie de la roue\\
-$\omega$ la fonction correspondant à la vitesse angulaire\\
-$A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$\\
-$B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$\\\\
+\]
+Avec: 
+\begin{itemize}
+    \item $k$ le débit de fuite des récipient
+    \item $R$ le rayon de la roue
+    \item $q$ le débit de la source d'eau
+    \item $\alpha$ le taux d'amortissement de la rotation
+    \item $\theta$ le moment d'inertie de la roue
+    \item $\omega$ la fonction correspondant à la vitesse angulaire
+    \item $A$ la fonction correspondant au déplacement du centre des masses sur l'axe $x$
+    \item $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$
+\end{itemize}
 
 A l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:FIGURE 3.7
 
@@ -169,9 +182,9 @@ A l'aide du même programme python que précédement affichons la représentatio
     \caption{Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
 \end{figure}
 
-On observe alors un attracteur très similaire à l'atracteur de Lorenz, physiquement parlant ce graphique représente le déplacement du center des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$\\
+On observe alors un attracteur très similaire à l'atracteur de Lorenz. Physiquement parlant, ce graphique représente le déplacement du center des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$
 
-De façon analogue à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:\\
+De façon analogue à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:
 \[
     \left\{
     \begin{array}{rcl}
@@ -180,9 +193,9 @@ De façon analogue à l'attracteur de Lorenz on peut recherché les points d'éq
         \dfrac{g*\pi*R*A-\alpha*\omega}{\theta }&=&0\\
     \end{array}
     \right.
-\]\\
+\]
 
-A l'aide d'un logiciel de calcule formel, ont trouve les solutions suivante:\\
+A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 \[
     \left\{
     \begin{array}{rcl}
