@@ -99,67 +99,70 @@ En procédant de façon similaire on peut déterminer la valeur critique de $\rh
 \section{Observation graphique}
 Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser à ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.
 
-\begin{figure}
-        \includegraphics[width=\textwidth]{Attracteur1.pdf}
-        \caption{Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
+\begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Attracteur1.pdf}
+        \caption{\label{fig:attracteur1}Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure} 
 
-On obtient un graphique en trois dimension a l'allure étrange(FIGURE 3.1), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.\\\\
-Essayons maintenant de comprendre pourquoi on obtient ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE(3.2) 
+On obtient un graphique en trois dimension a l'allure étrange(Figure \ref{fig:attracteur1}), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.
+Essayons maintenant de comprendre pourquoi on obtient ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_stable}).
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{rho_stable.pdf}
-    \caption{Attracteur de Lorenz pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{rho_stable.pdf}
+    \caption{\label{fig:rho_stable}Attracteur de Lorenz pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 On constate que le système évolue vers le seul point d'équilibre stable $(0,0,0)$ car $\rho<1$
 
-représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE 3.3
+représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_stable1})
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{rho_stable1.pdf}
-    \caption{Attracteur de Lorenz pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{rho_stable1.pdf}
+    \caption{\label{fig:rho_stable1}Attracteur de Lorenz pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 
 On observe ici que le système évolue vers l'un des deux point d'équilibres représenté par des point rouge sur le graphique, cela s'explique car dans ce cas $\rho>1$ donc le point $(0,0,0)$ représenté par le point bleu est instable, de plus $\rho < \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}=24.74$ donc les deux autres point d'équilibre sont stable, le système évolue donc vers l'un ou l'autre dépendant de la valeurs de $\rho$ et des conditions initiales.  
 
-Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ FIGURE 3.4
+Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_instable}).
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{rho_instable.pdf}
-    \caption{Attracteur de Lorenz pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{rho_instable.pdf}
+    \caption{\label{fig:rho_instable}Attracteur de Lorenz pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 
 Il n'est pas simple de comprendre ce qu'il ce passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses point d'équilibre instable passant de l'un à l'autre de façon imprédictible.
 
-A l'aide d'un graphique on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. FIGURE 3.5 En traçant deux attracteur avec une couleur différente sur le même graphique et en changeant très légèrement l'une des trois conditions initiale (0.0000001 dans ce cas), on observe que les deux attracteur ne se superposent pas.
+A l'aide d'un graphique, on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteurs avec une couleur différente sur le même graphique (Figure \ref{fig:initiale}) et en changeant très légèrement l'une des trois conditions initiales ($0.0000001$ dans ce cas), on observe que les deux attracteurs ne se superposent pas.
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{initiale.pdf}
-    \caption{Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$, les conditions initiales de l'attracteur bleu sont $(x_0=10,y_0=10,z_0=10)$ les conditions initiale de l'attracteur orange sont $(x_0=10.0000001,y_0=10,z_0=10)$} 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{initiale.pdf}
+    \caption{\label{fig:initiale}Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$, les conditions initiales de l'attracteur bleu sont $(x_0=10,y_0=10,z_0=10)$ les conditions initiale de l'attracteur orange sont $(x_0=10.0000001,y_0=10,z_0=10)$} 
 \end{figure}
 
 \section{Dimension expérimentale}
-
-Nous allons maintenant nous intéresser au moulin à eau de Lorenz FIGURE 3.6, aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif physique imaginé par Malkus et Howard en 1973 suite à l'article de
+\begin{wrapfigure}{R}{0.50\textwidth}
+    \centering
+    \includegraphics[width=0.49\textwidth]{moulin.pdf}
+    \caption{\label{fig:moulin}Moulin de Lorenz réalisé par l'université de Harvard} 
+\end{wrapfigure}
+Nous allons maintenant nous intéresser au moulin à eau de Lorenz (Figure \ref{fig:moulin}), aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif physique imaginé par Malkus et Howard en 1973 suite à l'article de
 Lorenz sur la dynamique chaotique en hydrodynamique, leur objectif était de crée un système physique permettant de retrouvé les équations établit par Lorenz. Ce dispositif possède un comportement chaotique et possède évidement un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude et précision les changements de sens de rotation de la roue ou ça vitesse de rotation.
 
 \subsection{Description du dispositif}
-
 Le moulin est composé d'une roue positioné verticalement ou parfois penchée, sur laquelle se trouve un certain nombre de récipient avec le fond percé, ses récipient sont fixé autour de la roue, une source d'eau est placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipient étant percé ils se vident et font varié la position du centre des masses, le comportement de la roue est alors imprévisible.
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{moulin.pdf}
-    \caption{Moulin de Lorenz réalisé par l'université de Harvard} 
-\end{figure}
 
 \subsection{Lien avec l'attracteur de Lorenz}
 Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique nous admettrons que l'équation du mouvment de la roue correpsond au système différentiel suivant:
 \[
     \left\{
     \begin{array}{rcl}
-        A'&=&k*A+\omega*B\\
-        B'&=&-\omega*A-k*B+q\\
-        \omega'&=&\dfrac{g*\pi*R*A-\alpha*\omega}{\theta }\\
+        A'&=&k*A+\omega*B\\[12pt]
+        B'&=&-\omega*A-k*B+q\\[12pt]
+        \omega'&=&\dfrac{g*\pi*R*A-\alpha*\omega}{\theta }
     \end{array}
     \right.
 \]
@@ -175,11 +178,12 @@ Avec:
     \item $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$
 \end{itemize}
 
-A l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin:FIGURE 3.7
+A l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin (Figure \ref{fig:moulin_graph}) :
 
-\begin{figure}
-    \includegraphics[width=\textwidth]{Moulin_graph.pdf}
-    \caption{Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Moulin_graph.pdf}
+    \caption{\label{fig:moulin_graph}Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
 \end{figure}
 
 On observe alors un attracteur très similaire à l'atracteur de Lorenz. Physiquement parlant, ce graphique représente le déplacement du center des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$
@@ -205,7 +209,7 @@ A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 
     \end{array}
     \right.
-\]\\
+\]
 
 \[
     \left\{
@@ -216,8 +220,8 @@ A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 
     \end{array}
     \right.
-\]\\
-\\
+\]
+
 \[
     \left\{
     \begin{array}{rcl}
@@ -227,7 +231,7 @@ A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 
     \end{array}
     \right.
-\]\\
+\]
 
 Avec $\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha} \geq 0$ et $\alpha\neq 0$\\
 
