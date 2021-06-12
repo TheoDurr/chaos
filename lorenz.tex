@@ -1,9 +1,7 @@
 \chapter{Les attracteurs de Lorenz}
-Tout d’abord commençons par définir rapidement et sans rentré dans les détails mathématiques ce qu’est un attracteur,
- il s’agit d’un ensemble ou d’un espace vers lequel un système dynamique évolue de manière
- irréversible en l’absence de perturbation, le concept d’attracteur est l’une des bases de la théorie du chaos. 
- Dans cette partie nous allons nous concentrer sur l’attracteur de Lorenz, il s’agit d’un attracteur
-représentant l’évolution du système dynamique différentiel de Lorenz. Cet attracteur est caractérisé d'attracteur étrange, cela signifie qu'il n'est pas continue, mais formé point par point par la dynamique du système.\\
+Tout d’abord commençons par définir rapidement et sans rentrer dans les détails mathématiques ce qu’est qu'un attracteur.
+
+Il s’agit d’un ensemble ou d’un espace vers lequel un système dynamique évolue de manière irréversible en l’absence de perturbation, le concept d’attracteur est l’une des bases de la théorie du chaos. Dans cette partie nous allons nous concentrer sur l’attracteur de Lorenz. Il s’agit d’un attracteur représentant l’évolution du ystème dynamique différentiel de Lorenz. Cet attracteur est caractérisé d'attracteur étrange, cela signifie qu'il n'est pas continue, mais formé point par point par la dynamique du système.
 
 Le système de Lorenz s'écrit: 
 \[
@@ -15,10 +13,9 @@ Le système de Lorenz s'écrit:
     \end{array}
     \right.
 \]
-Ces équations sont un modèle très simplifier crée par Lorenz pour modéliser le fonctionnement 
+Ces équations sont un modèle très simplifié crées par Lorenz pour modéliser le fonctionnement 
 de l’atmosphère terrestre. Il a décidé de chercher un modèle simple car 
-les équations décrivant l’atmosphère de façon précise était beaucoup trop compliqué à résoudre
- numériquement à l’époque de Lorenz et il souhaitais pouvoir étudié  le phénomène de convection
+les équations décrivant l’atmosphère de façon précise était beaucoup trop compliqué à résoudre numériquement à l’époque de Lorenz et il souhaitais pouvoir étudier  le phénomène de convection
 de Rayleigh-Bénard à l’aide de son modèle simplifié. Lors de l'étude de ce modèle il remarquera que certaines valeurs des paramètres donnent un comportement
 chaotique au système.\\
 
@@ -48,9 +45,9 @@ Nous allons nous intéresser aux points auxquels le modèle est stable, c’est-
 
 Avec $\sigma$, $\rho$ et $\beta$ des réels positifs.
 
-On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$. A l'aide d'un logiciel de calcule formel, on résoud ce système et l'on trouve des solutions dépendand de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet on trouve:
+On remarque que $x=y=z=0$ est une solution évidente de ce système quelque soit les valeurs de $\sigma$, $\rho$ et $\beta$. A l'aide d'un logiciel de calcul formel, on résoud ce système et l'on trouve des solutions dépendant de $\sigma$, $\rho$, $\beta$ et particulièrement de la valeur de $\rho$, en effet:
 
-Si $\beta(\rho-1)\geq 0$ alors :
+Si $\beta(\rho-1)\geq 0$, alors :
 \[
     \left\{
     \begin{array}{rcl}
@@ -65,7 +62,7 @@ $$(\sqrt{(\beta(\rho-1)}; \sqrt{(\beta(\rho-1)}; \rho-1), (-\sqrt{(\beta(\rho-1)
 et $(0,0,0)$ dans le cas où $\rho < 1$ il admet un seul point d'équilibre à savoir $(0,0,0)$
  
 \subsection{Stabilité des points d'équilibre}
-Les point d'équilibre trouvé précédement ne sont pas toujours stable, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points est déterminée par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue en linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admètre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliqué globalement la méthode utilisé sans rentré dans les détails, car la méthode utilisé fait appel à des notions d'étude de stabilité des équilibres que nous ne maîtrisons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon
+Les points d'équilibre trouvés précédement ne sont pas toujours stables, l'équilibre peut être stable ou instable, les conditions de stabilité de ses points sont déterminées par l'étude du signe de la partie réel des valeurs propres de la matrice jacobienne $A$ obtenue en linéarisant le système autour d'un point d'équilibre, cette partie étant trop technique pour nous, on se permet d'admettre l'expression de la matrice jacobienne $A$ et l'on se contentera d'expliquer globalement la méthode utilisé sans rentrer dans les détails, car la méthode utilisée fait appel à des notions d'étude de stabilité des équilibres que nous ne maîtrisons pas. On admet donc également que si le signe de toutes les valeurs propres est négatif, alors l'équilibre est stable et instable sinon.
 $A$ a pour expression :
 $$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
@@ -73,7 +70,7 @@ $$A=\begin{pmatrix}
        y & x & -\beta 
 \end{pmatrix}\\\\$$
 
-Interessons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:
+Intéressons nous à la stabilité du point d'équilibre $(0,0,0)$, on a alors:
 $$A=\begin{pmatrix}
     -\sigma & \sigma & 0\\
     \rho & -1 & 0\\
@@ -97,7 +94,7 @@ On constate que le signe de  $\lambda_{1}$ et $\lambda_{2}$ dépend de $\rho$, e
 En procédant de façon similaire on peut déterminer la valeur critique de $\rho$ pour laquelle l'équilibre des deux points non nul est instable. Ainsi si $\rho > \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}$, l'ensemble des points d'équilibres est instable et le système adapte un comportement particulier.
 
 \section{Observation graphique}
-Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, nous allons nous intéresser à ça représentation graphique que les parties précedentes vont nous aider à comprendre. Pour représenté l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.
+Après avoir appréhendé l'attracteur de Lorenz sous sa forme mathématique, nous allons nous intéresser à sa représentation graphique. Les parties précedentes vont nous aider à comprendre. Pour représenter l'attracteur de Lorenz, nous avons écrit un programme python qui résoud le système différentiel de Lorenz en fonction du temps et de conditions initiales (à l'aide d'un solveur deja existant) et nous avons affiché la courbe correspondante.
 
 \begin{figure}[!ht]
         \centering
@@ -105,8 +102,8 @@ Après avoir apréhendé l'attracteur de Lorenz sous sa forme mathématiques, no
         \caption{\label{fig:attracteur1}Attracteur de Lorenz pour $\rho=28$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure} 
 
-On obtient un graphique en trois dimension a l'allure étrange(Figure \ref{fig:attracteur1}), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classique utilisé pour représenter ce système car ce sont les valeurs historique utilisé par Lorenz et elle permette d'exhibé sont comportement chaotique. Les valeurs des conditions initiales sont pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera a évolué dans la zone de l'attracteur.
-Essayons maintenant de comprendre pourquoi on obtient ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie du à la stabilité ou l'instabilité des point d'équilibre dont nous avons parlé précédement, représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_stable}).
+On obtient un graphique en trois dimensions à l'allure étrange (Figure \ref{fig:attracteur1}), les valeurs de $\rho$, $\sigma$ et $\beta$ sont les valeurs classiques utilisées pour représenter ce système car ce sont les valeurs historiques utilisées par Lorenz. Elle permettent d'exhiber son comportement chaotique. Les valeurs des conditions initiales sont, pour ce graphique $(1,1,1)$. Ce qu'on observe est en effet un attracteur, car quelque soit les conditions initiales, la trajectoire se retrouvera à évoluer dans la zone de l'attracteur.
+Essayons maintenant de comprendre pourquoi on obtient ce graphique. L'aspect de l'attracteur de Lorenz est en grande partie dû à la stabilité ou l'instabilité des points d'équilibre dont nous avons parlé précédement. Représentons l'attracteur pour $\rho=\dfrac{1}{2}$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_stable}).
 
 \begin{figure}[!ht]
     \centering
@@ -123,7 +120,7 @@ représentons maintenant l'attracteur pour $\rho=10$, $\sigma=10$ et $\beta=\dfr
     \caption{\label{fig:rho_stable1}Attracteur de Lorenz pour $\rho=10$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 
-On observe ici que le système évolue vers l'un des deux point d'équilibres représenté par des point rouge sur le graphique, cela s'explique car dans ce cas $\rho>1$ donc le point $(0,0,0)$ représenté par le point bleu est instable, de plus $\rho < \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}=24.74$ donc les deux autres point d'équilibre sont stable, le système évolue donc vers l'un ou l'autre dépendant de la valeurs de $\rho$ et des conditions initiales.  
+On observe ici que le système évolue vers l'un des deux point d'équilibres représentés par des points rouges sur le graphique, cela s'explique car dans ce cas $\rho>1$ donc le point $(0,0,0)$ représenté par le point bleu est instable, de plus $\rho < \dfrac{\sigma(\sigma+\beta+3)}{\sigma-\beta-1}=24.74$ donc les deux autres point d'équilibre sont stable, le système évolue donc vers l'un ou l'autre dépendant de la valeurs de $\rho$ et des conditions initiales.  
 
 Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$ (Figure \ref{fig:rho_instable}).
 
@@ -133,9 +130,9 @@ Enfin représentons l'attracteur pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}
     \caption{\label{fig:rho_instable}Attracteur de Lorenz pour $\rho=25$, $\sigma=10$ et $\beta=\dfrac{8}{3}$} 
 \end{figure}
 
-Il n'est pas simple de comprendre ce qu'il se passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses points d'équilibre instable passant de l'un à l'autre de façon imprédictible.
+Il n'est pas simple de comprendre ce qu'il se passe sur ce graphique, la valeur critique de $\rho=24.74$ a été dépassé, alors il n'y a plus de point d'équilibre stable. Le système orbite donc autour de ses points d'équilibre instables passant de l'un à l'autre de façon imprédictible.
 
-A l'aide d'un graphique, on peut également observer la forte dépendace aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteurs avec une couleur différente sur le même graphique (Figure \ref{fig:initiale}) et en changeant très légèrement l'une des trois conditions initiales ($0.0000001$ dans ce cas), on observe que les deux attracteurs ne se superposent pas.
+\'A l'aide d'un graphique, on peut également observer la forte dépendance aux conditions initiales qui caractérise les systèmes chaotiques. En traçant deux attracteurs avec une couleur différente sur le même graphique (Figure \ref{fig:initiale}) et en changeant très légèrement l'une des trois conditions initiales ($0.0000001$ dans ce cas), on observe que les deux attracteurs ne se superposent pas.
 
 \begin{figure}[!ht]
     \centering
@@ -150,13 +147,13 @@ A l'aide d'un graphique, on peut également observer la forte dépendace aux con
     \caption{\label{fig:moulin}Moulin de Lorenz réalisé par l'université de Harvard} 
 \end{wrapfigure}
 Nous allons maintenant nous intéresser au moulin à eau de Lorenz (Figure \ref{fig:moulin}), aussi appelé moulin à eau de Malkus, il s'agit d'un dispositif physique imaginé par Malkus et Howard en 1973 suite à l'article de
-Lorenz sur la dynamique chaotique en hydrodynamique, leur objectif était de crée un système physique permettant de retrouvé les équations établit par Lorenz. Ce dispositif possède un comportement chaotique et possède évidement un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différentes des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude et précision les changements de sens de rotation de la roue ou ça vitesse de rotation.
+Lorenz sur la dynamique chaotique en hydrodynamique, leur objectif était de créer un système physique permettant de retrouver les équations établies par Lorenz. Ce dispositif possède un comportement chaotique et possède évidement un très fort lien avec l'attracteur de Lorenz car son mouvment est régi par une forme différente des équations de Lorenz. La particularité de ce moulin par rapport à un moulin à eau classique est qu'on ne peut pas prévoir avec certitude et précision les changements de sens de rotation de la roue ou sa vitesse de rotation.
 
 \subsection{Description du dispositif}
-Le moulin est composé d'une roue positioné verticalement ou parfois penchée, sur laquelle se trouve un certain nombre de récipient avec le fond percé, ses récipient sont fixé autour de la roue, une source d'eau est placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipient étant percé ils se vident et font varié la position du centre des masses, le comportement de la roue est alors imprévisible.
+Le moulin est composé d'une roue positionée verticalement ou parfois penchée, sur laquelle se trouve un certain nombre de récipient avec le fond percé, ces récipients sont fixés autour de la roue, une source d'eau est placé au dessus de la roue et rempli le premier récipient ce qui entraine la rotation de la roue, les récipients étants percés, ils se vident et font varier la position du centre des masses, le comportement de la roue est alors imprévisible.
 
 \subsection{Lien avec l'attracteur de Lorenz}
-Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique nous admettrons que l'équation du mouvment de la roue correpsond au système différentiel suivant:
+Comment faire le lien entre l'attracteur de Lorenz et ce moulin ? Il faut établir les équations du mouvement de la roue, n'ayant pas le niveau necessaire en mécanique, nous admettrons que l'équation du mouvment de la roue correspond au système différentiel suivant:
 \[
     \left\{
     \begin{array}{rcl}
@@ -178,7 +175,7 @@ Avec:
     \item $B$ la fonction correspondant au déplacement du centre des masses sur l'axe $y$
 \end{itemize}
 
-A l'aide du même programme python que précédement affichons la représentation du système décrivant les mouvement du moulin (Figure \ref{fig:moulin_graph}) :
+A l'aide du même programme python que précédemment affichons la représentation du système décrivant les mouvement du moulin (Figure \ref{fig:moulin_graph}) :
 
 \begin{figure}[!ht]
     \centering
@@ -186,9 +183,9 @@ A l'aide du même programme python que précédement affichons la représentatio
     \caption{\label{fig:moulin_graph}Attracteur du moulin de Lorenz pour $R=1$,$q=6$, $a=2.9$, $n=0.5$, $g=9.81$ } 
 \end{figure}
 
-On observe alors un attracteur très similaire à l'atracteur de Lorenz. Physiquement parlant, ce graphique représente le déplacement du center des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$
+On observe alors un attracteur très similaire à l'atracteur de Lorenz. Physiquement parlant, ce graphique représente le déplacement du centre des masses du moulin sur les axes $x$ et $y$ et l'évolution de la vitesse angulaire sur l'axe $z$
 
-De façon analogue à l'attracteur de Lorenz on peut recherché les points d'équilibre en résolvant le système suivant:
+De façon analogue à l'attracteur de Lorenz, on peut rechercher les points d'équilibre en résolvant le système suivant:
 \[
     \left\{
     \begin{array}{rcl}
@@ -235,8 +232,8 @@ A l'aide d'un logiciel de calcul formel, ont trouve les solutions suivantes:
 
 Avec $\dfrac{g*q*\pi*R-\alpha*k^2}{\alpha} \geq 0$ et $\alpha\neq 0$\\
 
-Les deux solutions symétriques sont représenter par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisi aucun des points d'équilibre n'est stable, donc comme pour l'attracteur de Lorenz le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calcules analogue à la partie précédente il serait possible de calculer les valeurs des différentes variables à partir desquelles les points sont stable ou instable. 
-Sur ce même graphique on peu également constater la forte dépendance aux conditions initiales, l'attracteur bleu à pour conditions initiales $(A_0=1,B_0=1,\omega_0=1)$ et l'attracteur rouge $(A_0=1.000001,B_0=1,\omega_0=1)$ on constante effectivement que leur évolution diverge fortement malgrès la faible variation de départ.
+Les deux solutions symétriques sont représentées par les deux points rouge sur le graphique et l'autre correspond au point bleu, on constate que pour les valeurs choisies, aucun des points d'équilibre n'est stable. Donc comme pour l'attracteur de Lorenz, le système oscille de façon imprévisible entre ses points d'équilibre instable formant alors un attracteur. En effectuant des calculs analogues à la partie précédente, il serait possible de calculer les valeurs des différentes variables à partir desquelles les points sont stables ou instables. 
+Sur ce même graphique, on peu également constater la forte dépendance aux conditions initiales, l'attracteur bleu à pour conditions initiales $(A_0=1,B_0=1,\omega_0=1)$ et l'attracteur rouge $(A_0=1.000001,B_0=1,\omega_0=1)$ on constate effectivement que leur évolution diverge fortement malgré la faible variation de départ.
 
 
 
